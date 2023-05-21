@@ -16,7 +16,7 @@ type Error interface {
 type mismatchedLength struct{}
 
 func (m *mismatchedLength) Error() string {
-	return "The length of sequence is larger than the input array's one"
+	return "The length of the sequence is larger than the input array's one\n"
 }
 
 func CalculateSequences(sequenceLength int, data []int) ([]Sequence, error) {

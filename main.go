@@ -7,12 +7,15 @@ import (
 )
 
 func main() {
-	var array = []int{23, 123, 523, 231, 150, 250, 7}
+	//var array = []int{23, 123, 523, 231, 150, 250, 7}
+	var array = []int{23, 123}
+
 	n := 3
 
 	sequences, err := functions.CalculateSequences(n, array)
 	if err != nil {
 		fmt.Printf("An error occurred: %s", err)
+		return
 	}
 
 	result := functions.FindSequenceWithMaxSum(sequences)
