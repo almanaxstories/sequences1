@@ -9,7 +9,22 @@ type Sequence struct {
 	Value int
 }
 
-func CalculateSequences(sequenceLength int, data []int) []Sequence {
+type Error interface {
+	Error() string
+}
+
+type mismatchedLength struct{}
+
+func (m *mismatchedLength) Error() string {
+	return "The length of sequence is larger than the input array's one"
+}
+
+func CalculateSequences(sequenceLength int, data []int) ([]Sequence, error) {
+
+	if sequenceLength > len(data) {
+		return nil, &mismatchedLength{}
+	}
+
 	sequences := []Sequence{}
 	for mainIterator := 0; mainIterator <= len(data)-sequenceLength; mainIterator++ {
 		sequenceName := "Sequence:"
@@ -21,7 +36,7 @@ func CalculateSequences(sequenceLength int, data []int) []Sequence {
 		sequenceName += " " + "With total sum: "
 		sequences = append(sequences, Sequence{Name: sequenceName, Value: sequenceSum})
 	}
-	return sequences
+	return sequences, nil
 }
 
 func FindSequenceWithMaxSum(data []Sequence) Sequence {
