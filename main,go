@@ -1,0 +1,28 @@
+package 
+
+func main(){
+	//functions calls
+}
+
+function findSequenceWithMaxSum(sequenceLength int, data []int) result string {
+	type sequences []struct {
+		name : string
+		value : int
+	}
+
+
+	for mainIterator := 0; mainIterator < len(data); mainIterator++ {
+
+		if (mainIterator + sequenceLength > len(data)){
+			break
+		}
+
+		for subiterator := mainIterator; subiterator < subiterator + sequenceLength; subiterator++ {
+			sequences = append(sequences, )
+		}
+
+
+
+	
+	}
+}
